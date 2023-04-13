@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="force_sensor">
+
+    <ros2_control name="force_sensor" type="system">
+      <hardware>
+        <plugin>ethercat_driver/EthercatDriver</plugin>
+        <param name="master_id">0</param>
+        <param name="control_frequency">100</param>
+      </hardware>
+
+      <sensor name="force_sensor">
+        <state_interface name="force.0"/>
+        <state_interface name="force.1"/>
+        <ec_module name="force_sensor">
+          <plugin>ethercat_generic_plugins/GenericEcSlave</plugin>
+          <param name="alias">0</param>
+          <param name="position">0</param>
+          <param name="slave_config">$(find ethercat_force_sensor)/config/slave_config.yaml</param>
+        </ec_module>
+      </sensor>
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>

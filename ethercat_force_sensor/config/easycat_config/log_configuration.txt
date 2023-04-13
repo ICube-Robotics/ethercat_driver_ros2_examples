@@ -1,0 +1,81 @@
+
+Easy Configurator, configuration engine  V_3_3
+
+log created on Thu Apr 13 11:45:58 2023
+
+Analyzing the project file
+
+Easy Configurator project ForceSensor.prj
+
+OUTPUTS_TAG
+INPUTS_TAG
+Line 5 --- force_0                 int16_t
+Line 6 --- force_1                 int16_t
+INFO_TAG
+0x0000079A
+AB&amp;T
+0xDEADBEEF
+0x00000001
+ForceSensor
+ForceSensor
+END_TAG
+
+The ForceSensor.prj configuration file is correct
+
+ByteNumOut 0
+ByteNumIn  4
+PdoNumOut  0
+PdoNumIn   2
+
+Creating the ForceSensor.xml file
+
+PROJECT_TAG   ForceSensor.prj
+VENDOID_TAG   0000079A
+VEN_NAM_TAG   AB&amp;T
+PRO_COD_TAG   DEADBEEF
+REVISIO_TAG   00000001
+DEV_NAM_TAG   ForceSensor
+DEV_NAM_TAG   ForceSensor
+
+FIRST_TAG
+
+Input entries
+          <Entry>
+            <Index>#x6</Index>
+            <SubIndex>1</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>force_0</Name>
+            <DataType>INT</DataType>
+          </Entry>
+          <Entry>
+            <Index>#x6</Index>
+            <SubIndex>2</SubIndex>
+            <BitLen>16</BitLen>
+            <Name>force_1</Name>
+            <DataType>INT</DataType>
+          </Entry>
+
+LAST_TAG
+
+The ForceSensor.xml file has been created
+
+Creating the ForceSensor.h file
+
+#define CUST_BYTE_NUM_OUT	0
+#define CUST_BYTE_NUM_IN	4
+#define TOT_BYTE_NUM_ROUND_OUT	0
+#define TOT_BYTE_NUM_ROUND_IN	4
+
+
+Output entries
+
+Input entries
+		int16_t     force_0;
+		int16_t     force_1;
+
+The ForceSensor.h file has been created
+
+Creating the ForceSensor.bin file
+
+
+The ForceSensor.bin file has been created

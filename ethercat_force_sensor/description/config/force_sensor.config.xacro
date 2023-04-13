@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="force_sensor">
+
+  <link name="world"/>
+
+  <xacro:include filename="$(find ethercat_force_sensor)/description/ros2_control/force_sensor.ros2_control.xacro" />
+
+  <xacro:force_sensor/>
+</robot>

@@ -1,0 +1,14 @@
+ForceSensor
+OUTPUTS_TAG
+INPUTS_TAG
+force_0
+int16_t
+force_1
+int16_t
+INFO_TAG
+0x0000079A
+AB&amp;T
+0xDEADBEEF
+0x00000001
+ForceSensor
+END_TAG
