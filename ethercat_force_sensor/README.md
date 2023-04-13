@@ -2,6 +2,21 @@
 
 This repository contains the instructions for building a custom Force Sensor EtherCAT slave using strain gauges and EasyCAT and use it in ROS2 with [EtherCAT Driver ROS2 stack](https://github.com/ICube-Robotics/ethercat_driver_ros2).
 
+## Required Hardware ##
+| | |
+|---|---
+| [Arduino Uno](https://store.arduino.cc/products/arduino-uno-rev3) | <img src="https://cdn.shopify.com/s/files/1/0438/4735/2471/products/A000066_01.iso_643x483.jpg?v=1629815860"  width="30%">
+| [Load Cell / Wheatstone Amplifier Shield (2ch)](https://eu.robotshop.com/products/strain-gauge-load-cell-amplifier-shield-2ch) |<img src="https://cdn.shopify.com/s/files/1/0573/1486/9416/products/strain-gauge-load-cell-amplifier-shield-2ch_53cd0820-70a7-4f4f-95c8-a95b3a1deff1_600x.jpg?v=1681189038"  width="30%"> |
+| [EasyCAT Shield for Arduino](https://www.bausano.net/en/hardware/easycat.html)  | <img src="https://www.bausano.net/images/EasyCAT.jpg" width="30%">
+| [5 Kg Micro Load Cell](https://eu.robotshop.com/products/micro-load-cell-5-kg)  | <img src="https://cdn.shopify.com/s/files/1/0573/1486/9416/products/micro-load-cell-5-kg_1_0e957087-2532-406e-90a7-35aeebde0a6a_600x.jpg?v=1680837537" width="30%">
+
+
+
+## EasyCAT configuration ##
+Use the [EasyConfigurator](https://www.bausano.net/images/arduino-easycat/EasyConfigurator_UserManual.pdf) tool to load the [ForceSensor](config/easycat_config/ForceSensor.prj) file and write the configuration to the slave EEPROM.
+
+Open the [ForceSensor](config/easycat_config/ForceSensor.ino) Arduino project in the [Arduino IDE](https://www.arduino.cc/en/software) and upload it to the Arduino board.
+
 ## Usage ##
 ***Required setup : Ubuntu 22.04 LTS***
 
