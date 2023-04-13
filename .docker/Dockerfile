@@ -1,7 +1,7 @@
 ARG ROS_DISTRO="humble"
 FROM ros:${ROS_DISTRO}
 
-COPY . /ros2_dev/ethercat_driver_ros2
+COPY . /ros2_dev/ethercat_driver_ros2_examples
 
 RUN apt update && \
     apt install autoconf libtool -y
