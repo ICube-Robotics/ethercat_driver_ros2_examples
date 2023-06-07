@@ -5,6 +5,7 @@
 Example repository for the [EtherCAT Driver ROS2 stack](https://github.com/ICube-Robotics/ethercat_driver_ros2).
 
 This repository contains the following example packages :
+- EtherCAT compatible CIA402 motor drive (example using Maxon EPOS3)
 - Custom Force Sensor EtherCAT slave using strain gauges and EasyCAT
 
 ## Contacts ##

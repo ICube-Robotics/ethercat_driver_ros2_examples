@@ -1,0 +1,33 @@
+# Configuration file for Maxon EPOS3 drive
+vendor_id: 0x000000fb
+product_id: 0x64400000
+assign_activate: 0x0300  # DC Synch register
+auto_fault_reset: false  # true = automatic fault reset, false = fault reset on rising edge command interface "reset_fault"
+sdo:  # sdo data to be transferred at drive startup
+  - {index: 0x60C2, sub_index: 1, type: int8, value: 10} # Set interpolation time for cyclic modes to 10 ms
+  - {index: 0x60C2, sub_index: 2, type: int8, value: -3} # Set base 10-3s
+rpdo:  # RxPDO = receive PDO Mapping
+  - index: 0x1603
+    channels:
+      - {index: 0x6040, sub_index: 0, type: uint16, default: 0}  # Control word
+      - {index: 0x607a, sub_index: 0, type: int32, command_interface: position, default: .nan}  # Target position
+      - {index: 0x60ff, sub_index: 0, type: int32, default: 0}  # Target velocity
+      - {index: 0x6071, sub_index: 0, type: int16, default: 0}  # Target torque
+      - {index: 0x60b0, sub_index: 0, type: int32, default: 0}  # Offset position
+      - {index: 0x60b1, sub_index: 0, type: int32, default: 0}  # Offset velocity
+      - {index: 0x60b2, sub_index: 0, type: int16, default: 0}  # Offset torque
+      - {index: 0x6060, sub_index: 0, type: int8, default: 8}  # Mode of operation
+      - {index: 0x2078, sub_index: 1, type: uint16, default: 0}  # Digital Output Functionalities
+      - {index: 0x60b8, sub_index: 0, type: uint16, default: 0}  # Touch Probe Function
+tpdo:  # TxPDO = transmit PDO Mapping
+  - index: 0x1a03
+    channels:
+      - {index: 0x6041, sub_index: 0, type: uint16}  # Status word
+      - {index: 0x6064, sub_index: 0, type: int32, state_interface: position}  # Position actual value
+      - {index: 0x606c, sub_index: 0, type: int32, state_interface: velocity}  # Velocity actual value
+      - {index: 0x6077, sub_index: 0, type: int16, state_interface: effort}  # Torque actual value
+      - {index: 0x6061, sub_index: 0, type: int8}  # Mode of operation display
+      - {index: 0x2071, sub_index: 1, type: int16}  # Digital Input Functionalities State
+      - {index: 0x60b9, sub_index: 0, type: int16}  # Touch Probe Status
+      - {index: 0x60ba, sub_index: 0, type: int32}  # Touch Probe Position 1 Positive Value
+      - {index: 0x60bb, sub_index: 0, type: int32}  # Touch Probe Position 1 Negative Value

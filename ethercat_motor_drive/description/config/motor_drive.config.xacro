@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="motor_drive">
+
+  <link name="world"/>
+
+  <xacro:include filename="$(find ethercat_motor_drive)/description/ros2_control/motor_drive.ros2_control.xacro" />
+
+  <xacro:motor_drive/>
+</robot>
