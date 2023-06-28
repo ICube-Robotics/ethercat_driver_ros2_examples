@@ -7,7 +7,12 @@
   <maintainer email="mcbed.robotics@gmail.com">Maciej Bednarczyk</maintainer>
   <license>Apache-2.0</license>
 
-  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>ethercat_driver</exec_depend>
+  <exec_depend>ethercat_interface</exec_depend>
+  <exec_depend>ethercat_generic_slave</exec_depend>
+  <exec_depend>ethercat_generic_cia402_drive</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
