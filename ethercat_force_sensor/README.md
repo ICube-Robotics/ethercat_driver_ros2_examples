@@ -37,7 +37,7 @@ Open the [ForceSensor](config/easycat_config/ForceSensor.ino) Arduino project in
 4. Pull relevant packages, install dependencies, compile, and source the workspace by using:
     ```shell
     cd ~/ros2_ws
-    git clone https://github.com/ICube-Robotics/ethercat_driver_ros2_exapmles.git src/ethercat_driver_ros2_examples
+    git clone https://github.com/ICube-Robotics/ethercat_driver_ros2_examples.git src/ethercat_driver_ros2_examples
     vcs import src < ethercat_driver_ros2_examples.repos
     rosdep install --ignore-src --from-paths . -y -r
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install --packages-select ethercat_force_sensor
