@@ -1,0 +1,10 @@
+# Configuration file for Omron NX ECC201 with id5442
+# Description : Omron EtherCAT Coupler NX_ECC201 with NX_OD5256 16-ch Digital Output module
+vendor_id: 0x00000083
+product_id: 0x00000083
+rpdo: #RxPDO
+  - index: 0x1604
+    channels:
+      - {index: 0x7022, sub_index: 0x01, type: uint16, command_interface: d_output}
+sm:  # Sync Manager
+  - {index: 2, type: output, pdo: rpdo, watchdog: disable}

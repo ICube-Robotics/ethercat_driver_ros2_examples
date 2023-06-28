@@ -1,0 +1,31 @@
+# Configuration file for Beckhoff EL1018
+# Description : EtherCAT Terminal, 8-channel digital input, 24 V DC, 10 us.
+vendor_id: 0x00000002
+product_id: 0x03fa3052
+tpdo:  # TxPDO
+  - index: 0x1a00
+    channels:
+      - {index: 0x6000, sub_index: 0x01, type: bool, mask: 1, state_interface: d_input.1}
+  - index: 0x1a01
+    channels:
+      - {index: 0x6010, sub_index: 0x01, type: bool, mask: 2, state_interface: d_input.2}
+  - index: 0x1a02
+    channels:
+      - {index: 0x6020, sub_index: 0x01, type: bool, mask: 4, state_interface: d_input.3}
+  - index: 0x1a03
+    channels:
+      - {index: 0x6030, sub_index: 0x01, type: bool, mask: 8, state_interface: d_input.4}
+  - index: 0x1a04
+    channels:
+      - {index: 0x6040, sub_index: 0x01, type: bool, mask: 16, state_interface: d_input.5}
+  - index: 0x1a05
+    channels:
+      - {index: 0x6050, sub_index: 0x01, type: bool, mask: 32, state_interface: d_input.6}
+  - index: 0x1a06
+    channels:
+      - {index: 0x6060, sub_index: 0x01, type: bool, mask: 64, state_interface: d_input.7}
+  - index: 0x1a07
+    channels:
+      - {index: 0x6070, sub_index: 0x01, type: bool, mask: 128, state_interface: d_input.8}
+sm:  # Sync Manager
+  - {index: 0, type: input, pdo: tpdo, watchdog: disable}

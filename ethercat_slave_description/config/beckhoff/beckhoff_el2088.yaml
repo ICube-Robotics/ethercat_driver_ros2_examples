@@ -1,0 +1,31 @@
+# Configuration file for Beckhoff EL2088
+# Description : EtherCAT Terminal, 8-channel digital output, 24 V DC, 0.5 A, ground switching.
+vendor_id: 0x00000002
+product_id: 0x08283052
+rpdo:  # RxPDO
+  - index: 0x1600
+    channels:
+      - {index: 0x7000, sub_index: 0x01, type: bool, mask: 1, command_interface: d_output.1}
+  - index: 0x1601
+    channels:
+      - {index: 0x7010, sub_index: 0x01, type: bool, mask: 2, command_interface: d_output.2}
+  - index: 0x1602
+    channels:
+      - {index: 0x7020, sub_index: 0x01, type: bool, mask: 4, command_interface: d_output.3}
+  - index: 0x1603
+    channels:
+      - {index: 0x7030, sub_index: 0x01, type: bool, mask: 8, command_interface: d_output.4}
+  - index: 0x1604
+    channels:
+      - {index: 0x7040, sub_index: 0x01, type: bool, mask: 16, command_interface: d_output.5}
+  - index: 0x1605
+    channels:
+      - {index: 0x7050, sub_index: 0x01, type: bool, mask: 32, command_interface: d_output.6}
+  - index: 0x1606
+    channels:
+      - {index: 0x7060, sub_index: 0x01, type: bool, mask: 64, command_interface: d_output.7}
+  - index: 0x1607
+    channels:
+      - {index: 0x7070, sub_index: 0x01, type: bool, mask: 128, command_interface: d_output.8}
+sm:  # Sync Manager
+  - {index: 0, type: output, pdo: rpdo, watchdog: enable}

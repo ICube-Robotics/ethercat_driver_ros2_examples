@@ -1,0 +1,18 @@
+# Configuration file for Beckhoff EL3102
+# Description : EtherCAT Terminal, 2-channel analog input, voltage, ±10 V, 16 bit, differential.
+vendor_id: 0x00000002
+product_id: 0x0c1e3052
+tpdo:  # TxPDO
+  - index: 0x1a00
+    channels:
+      - {index: 0x3101, sub_index: 0x01, type: uint8}
+      - {index: 0x3101, sub_index: 0x02, type: int16, state_interface: analog_input.1, factor: 0.000305185}
+  - index: 0x1a01
+    channels:
+      - {index: 0x3102, sub_index: 0x01, type: uint8}
+      - {index: 0x3102, sub_index: 0x02, type: int16, state_interface: analog_input.2, factor: 0.000305185}
+sm:  # Sync Manager
+  - {index: 0, type: output, pdo: ~, watchdog: disable}
+  - {index: 1, type: input, pdo: ~, watchdog: disable}
+  - {index: 2, type: output, pdo: ~, watchdog: disable}
+  - {index: 3, type: input, pdo: tpdo, watchdog: disable}

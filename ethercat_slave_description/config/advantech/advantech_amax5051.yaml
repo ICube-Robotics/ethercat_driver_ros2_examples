@@ -1,0 +1,17 @@
+# Configuration file for Advantech AMAX-5051
+# Description : 8-ch Digital Input EtherCAT Slice IO Module
+vendor_id: 0x000013FE
+product_id: 0x00035051
+tpdo:  # TxPDO
+  - index: 0x1a00
+    channels:
+      - {index: 0x3001, sub_index: 0x01, type: bool, mask: 1, state_interface: d_input.1}
+      - {index: 0x3001, sub_index: 0x02, type: bool, mask: 2, state_interface: d_input.2}
+      - {index: 0x3001, sub_index: 0x03, type: bool, mask: 4, state_interface: d_input.3}
+      - {index: 0x3001, sub_index: 0x04, type: bool, mask: 8, state_interface: d_input.4}
+      - {index: 0x3001, sub_index: 0x05, type: bool, mask: 16, state_interface: d_input.5}
+      - {index: 0x3001, sub_index: 0x06, type: bool, mask: 32, state_interface: d_input.6}
+      - {index: 0x3001, sub_index: 0x07, type: bool, mask: 64, state_interface: d_input.7}
+      - {index: 0x3001, sub_index: 0x08, type: bool, mask: 128, state_interface: d_input.8}
+sm:  # Sync Manager
+  - {index: 0, type: input, pdo: tpdo, watchdog: disable}

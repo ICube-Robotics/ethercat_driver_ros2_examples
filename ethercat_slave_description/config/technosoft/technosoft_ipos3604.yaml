@@ -1,0 +1,38 @@
+# Configuration file for Technosoft IPOS 3604 drive
+vendor_id: 0x000001a3
+product_id: 0x01ab46e5
+assign_activate: 0x0330  # DC Synch register
+auto_fault_reset: false  # true = automatic fault reset, false = fault reset on rising edge command interface "reset_fault"
+sdo:  # sdo data to be transferred at drive startup
+  - {index: 0x60C2, sub_index: 1, type: int8, value: 10} # Set interpolation time for cyclic modes to 10 ms
+  - {index: 0x60C2, sub_index: 2, type: int8, value: -3} # Set base 10-3s
+rpdo:  # RxPDO = receive PDO Mapping
+  - index: 0x1600
+    channels:
+      - {index: 0x6040, sub_index: 0, type: uint16, command_interface: control_word, default: 0}  # Control word
+      - {index: 0x607a, sub_index: 0, type: int32, command_interface: position}  # Target position
+  - index: 0x1601
+    channels:
+      - {index: 0x6060, sub_index: 0, type: int8, command_interface: mode_of_operation, default: 8}  # Mode of operation
+      - {index: 0x60ff, sub_index: 0, type: int32, command_interface: velocity, default: 0}  # Target velocity
+  - index: 0x1602
+    channels:
+      - {index: 0x2090, sub_index: 2, type: uint8, default: 3}  # Digital outputs mask
+      - {index: 0x2090, sub_index: 1, type: uint8, command_interface: digital_out, default: 0}  # Digital outputs value
+tpdo:  # TxPDO = transmit PDO Mapping
+  - index: 0x1a00
+    channels:
+      - {index: 0x6041, sub_index: 0, type: uint16, state_interface: status_word}  # Status word
+      - {index: 0x6064, sub_index: 0, type: int32, state_interface: position}  # Position actual value
+  - index: 0x1a01
+    channels:
+      - {index: 0x6061, sub_index: 0, type: int8, state_interface: mode_of_operation}  # Mode of operation display
+      - {index: 0x606c, sub_index: 0, type: int32, state_interface: velocity}  # Velocity actual value 65536 = 1 encoder increment/sample (internal driver slow loop : 1khz )
+  - index: 0x1a02
+    channels:
+      - {index: 0x6077, sub_index: 0, type: int16, state_interface: effort}  # Torque actual value
+      - {index: 0x208F, sub_index: 2, type: uint8, state_interface: digital_in}  # Digital Inputs value
+  - index: 0x1a03
+    channels:
+      - {index: 0x2046, sub_index: 0, type: int16, state_interface: analog_in.1}  # Analog input value
+      - {index: 0x2047, sub_index: 0, type: int16, state_interface: analog_in.2}  # Analog input value

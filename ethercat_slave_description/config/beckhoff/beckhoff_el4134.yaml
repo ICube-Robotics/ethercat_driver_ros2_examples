@@ -1,0 +1,21 @@
+# Configuration file for Beckhoff EL4134
+# Description : EtherCAT Terminal, 4-channel analog output, voltage, ±10 V, 16 bit.
+
+vendor_id: 0x00000002
+product_id: 0x10263052
+rpdo:  # RxPDO
+  - index: 0x1600
+    channels:
+      - {index: 0x7000, sub_index: 0x01, type: int16, command_interface: analog_output.1, factor: 3276.7}
+  - index: 0x1601
+    channels:
+      - {index: 0x7010, sub_index: 0x01, type: int16, command_interface: analog_output.2, factor: 3276.7}
+  - index: 0x1602
+    channels:
+      - {index: 0x7020, sub_index: 0x01, type: int16, command_interface: analog_output.3, factor: 3276.7}
+  - index: 0x1603
+    channels:
+      - {index: 0x7030, sub_index: 0x01, type: int16, command_interface: analog_output.4, factor: 3276.7}
+
+sm:  # Sync Manager
+  - {index: 2, type: output, pdo: rpdo, watchdog: enable}

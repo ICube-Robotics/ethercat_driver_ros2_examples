@@ -1,0 +1,41 @@
+# Configuration file for Beckhoff EL5101
+# Description : EtherCAT Terminal, 1-channel encoder interface, incremental, 5 V DC (DIFF RS422, TTL), 1 MHz
+# Predefined PDO assignment for Standard 32-bit mode
+vendor_id: 0x00000002
+product_id: 0x13ed3052
+rpdo:  # RxPDO = receive PDO Mapping
+  - index: 0x1603
+    channels:
+      - {index: 0x7010, sub_index: 0x01, type: bool}  # Enable latch C
+      - {index: 0x7010, sub_index: 0x02, type: bool}  # Enable latch extern on positive edge
+      - {index: 0x7010, sub_index: 0x03, type: bool, mask: 4, command_interface: reset}  # Set counter
+      - {index: 0x7010, sub_index: 0x04, type: bool}  # Enable latch extern on negative edge
+      - {index: 0x0000, sub_index: 0x00, type: bit4}  # Gap
+      - {index: 0x0000, sub_index: 0x00, type: bit8}  # Gap
+      - {index: 0x7010, sub_index: 0x11, type: int32, default: 0}  # Set counter value
+tpdo:  # TxPDO = transmit PDO Mapping
+  - index: 0x1a04
+    channels:
+      - {index: 0x6010, sub_index: 0x01, type: bool}  # Latch C valid
+      - {index: 0x6010, sub_index: 0x02, type: bool}  # Latch extern valid
+      - {index: 0x6010, sub_index: 0x03, type: bool}  # Set counter done
+      - {index: 0x6010, sub_index: 0x04, type: bool}  # Counter underflow
+      - {index: 0x6010, sub_index: 0x05, type: bool}  # Counter overflow
+      - {index: 0x6010, sub_index: 0x06, type: bool}  # Status of input status
+      - {index: 0x6010, sub_index: 0x07, type: bool}  # Open circuit
+      - {index: 0x6010, sub_index: 0x08, type: bool}  # Extrapolation stall
+      - {index: 0x6010, sub_index: 0x09, type: bool}  # Status of input A
+      - {index: 0x6010, sub_index: 0x0a, type: bool}  # Status of input B
+      - {index: 0x6010, sub_index: 0x0b, type: bool}  # Status of input C
+      - {index: 0x6010, sub_index: 0x0c, type: bool}  # Status of input gate
+      - {index: 0x6010, sub_index: 0x0d, type: bool}  # Status of extern latch
+      - {index: 0x1c32, sub_index: 0x20, type: bool}  # Sync error
+      - {index: 0x1804, sub_index: 0x07, type: bool}  # TxPDO-State
+      - {index: 0x1804, sub_index: 0x09, type: bool}  # TxPDO-Toggle
+      - {index: 0x6010, sub_index: 0x11, type: int32, state_interface: position}  # Counter value
+      - {index: 0x6010, sub_index: 0x12, type: int32}  # Latch value
+sm:  # Sync Manager
+  - {index: 0, type: output, pdo: ~, watchdog: disable}
+  - {index: 1, type: input, pdo: ~, watchdog: disable}
+  - {index: 2, type: output, pdo: rpdo, watchdog: disable}
+  - {index: 3, type: input, pdo: tpdo, watchdog: disable}
