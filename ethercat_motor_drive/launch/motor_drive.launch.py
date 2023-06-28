@@ -83,17 +83,17 @@ def generate_launch_description():
         arguments=["trajectory_controller", "-c", "/controller_manager"],
     )
 
-    velocity_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["velocity_controller", "-c", "/controller_manager"],
-    )
+    # velocity_controller_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["velocity_controller", "-c", "/controller_manager"],
+    # )
 
-    effort_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["effort_controller", "-c", "/controller_manager"],
-    )
+    # effort_controller_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["effort_controller", "-c", "/controller_manager"],
+    # )
 
     nodes = [
         control_node,
