@@ -5,17 +5,17 @@ product_id: 0x26483052
 rpdo:  # RxPDO
   - index: 0x1601
     channels:
-      - {index: 0x6000, sub_index: 0x01, type: uint32}  # Control 1
-      - {index: 0x6000, sub_index: 0x02, type: uint32}  # Control 2
+      - {index: 0x7010, sub_index: 0x01, type: uint32}  # Control 1
+      - {index: 0x7010, sub_index: 0x02, type: uint32}  # Control 2
 tpdo:  # TxPDO
   - index: 0x1a00
     channels:
-      - {index: 0x6000, sub_index: 0x01, type: int32, state_interface: force.x}  # Fx/Gage0
-      - {index: 0x6000, sub_index: 0x02, type: int32, state_interface: force.y}  # Fy/Gage1
-      - {index: 0x6000, sub_index: 0x03, type: int32, state_interface: force.z}  # Fz/Gage2
-      - {index: 0x6000, sub_index: 0x04, type: int32, state_interface: torque.x}  # Tx/Gage3
-      - {index: 0x6000, sub_index: 0x05, type: int32, state_interface: torque.y}  # Ty/Gage4
-      - {index: 0x6000, sub_index: 0x06, type: int32, state_interface: torque.z}  # Tz/Gage5
+      - {index: 0x6000, sub_index: 0x01, type: int32, state_interface: force.x, factor: 1e-6, offset: 0.0}  # Fx/Gage0
+      - {index: 0x6000, sub_index: 0x02, type: int32, state_interface: force.y, factor: 1e-6, offset: 0.0}  # Fy/Gage1
+      - {index: 0x6000, sub_index: 0x03, type: int32, state_interface: force.z, factor: 1e-6, offset: 0.0}  # Fz/Gage2
+      - {index: 0x6000, sub_index: 0x04, type: int32, state_interface: torque.x, factor: 1e-6, offset: 0.0}  # Tx/Gage3
+      - {index: 0x6000, sub_index: 0x05, type: int32, state_interface: torque.y, factor: 1e-6, offset: 0.0}  # Ty/Gage4
+      - {index: 0x6000, sub_index: 0x06, type: int32, state_interface: torque.z, factor: 1e-6, offset: 0.0}  # Tz/Gage5
       - {index: 0x6010, sub_index: 0x00, type: uint32}  # Status Code
       - {index: 0x6020, sub_index: 0x00, type: uint32}  # Sample Counter
 sm:  # Sync Manager
