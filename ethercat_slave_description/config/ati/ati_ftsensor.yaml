@@ -5,8 +5,8 @@ product_id: 0x26483052
 rpdo:  # RxPDO
   - index: 0x1601
     channels:
-      - {index: 0x6000, sub_index: 0x01, type: uint32}  # Control 1
-      - {index: 0x6000, sub_index: 0x02, type: uint32}  # Control 2
+      - {index: 0x7010, sub_index: 0x01, type: uint32}  # Control 1
+      - {index: 0x7010, sub_index: 0x02, type: uint32}  # Control 2
 tpdo:  # TxPDO
   - index: 0x1a00
     channels:
