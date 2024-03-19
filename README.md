@@ -14,4 +14,10 @@ This repository contains the following example packages :
 
 [ICube Laboratory](https://icube.unistra.fr), [University of Strasbourg](https://www.unistra.fr/), France
 
+__Manuel Yguel:__ [yguel@unistra.fr](mailto:yguel@unistra.fr), @github: [yguel](https://github.com/yguel)
+
+__Laurent Barbé:__ [laurent.barbe@unistra.fr](mailto:laurent.barbe@unistra.fr)
+
+__Philippe Zanne:__ [philippe.zanne@unistra.fr](mailto:philippe.zanne@unistra.fr)
+
 __Maciej Bednarczyk:__ [m.bednarczyk@unistra.fr](mailto:m.bednarczyk@unistra.fr), @github: [mcbed](https://github.com/mcbed)
