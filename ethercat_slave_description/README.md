@@ -43,3 +43,7 @@ The list of available example EtherCAT motor drive module configurations for the
 ### Technosoft
 - **Technosoft IPOS 3604**: Technosoft IPOS 3064 motor drive.
   - Plugin : `EcCiA402Drive`
+
+### Synapticon
+- **Synapticon SOMANET Circulo 9**: Synapticon SOMANET Circulo 9 Safe Motion servo drive.
+  - Plugin : `EcCiA402Drive`

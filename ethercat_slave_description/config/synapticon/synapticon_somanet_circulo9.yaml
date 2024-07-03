@@ -1,0 +1,50 @@
+# Configuration file for Synapticon SOMANET Circulo 9 Safe Motion, Firmware Version 5.1.3
+vendor_id: 0x000022d2
+product_id: 0x00000302
+assign_activate: 0x0300  # DC Synch register
+auto_fault_reset: false  # true = automatic fault reset, false = fault reset on rising edge command interface "reset_fault"
+rpdo:  # RxPDO = receive PDO Mapping
+  - index: 0x1600
+    channels:
+      - {index: 0x6040, sub_index: 0, type: uint16, default: 0}  # Control word
+      - {index: 0x607a, sub_index: 0, type: int32, command_interface: position, default: .nan}  # Target position
+      - {index: 0x60ff, sub_index: 0, type: int32, default: 0}  # Target velocity
+      - {index: 0x6071, sub_index: 0, type: int16, default: 0}  # Target torque
+      - {index: 0x60b2, sub_index: 0, type: int16, default: 0}  # Offset torque
+      - {index: 0x6060, sub_index: 0, type: int8, default: 8}  # Mode of operation
+      - {index: 0x2701, sub_index: 0, type: uint32, default: 0}  # Tuning command
+  - index: 0x1601
+    channels:
+      - {index: 0x60fe, sub_index: 1, type: uint32, default: 0}  # Digital Outputs: Physical Outputs
+      - {index: 0x60fe, sub_index: 2, type: uint32, default: 0}  # Digital Outputs: Bit Mask
+  - index: 0x1602
+    channels:
+      - {index: 0x60b1, sub_index: 0, type: int32, default: 0}  # Offset velocity
+      - {index: 0x2703, sub_index: 0, type: uint32, default: 0}  # User MOSI
+
+tpdo:  # TxPDO = transmit PDO Mapping
+  - index: 0x1a00
+    channels:
+      - {index: 0x6041, sub_index: 0, type: uint16}  # Status word
+      - {index: 0x6064, sub_index: 0, type: int32, state_interface: position}  # Position actual value
+      - {index: 0x606c, sub_index: 0, type: int32, state_interface: velocity}  # Velocity actual value
+      - {index: 0x6077, sub_index: 0, type: int16, state_interface: effort}  # Torque actual value
+      - {index: 0x6061, sub_index: 0, type: int8}  # Mode of operation display
+      - {index: 0x60f4, sub_index: 0, type: int32}  # Following error actual value
+  - index: 0x1a01
+    channels:
+      - {index: 0x2401, sub_index: 0, type: uint16}  # Analog input 1
+      - {index: 0x2402, sub_index: 0, type: uint16}  # Analog input 2
+      - {index: 0x2403, sub_index: 0, type: uint16}  # Analog input 3
+      - {index: 0x2404, sub_index: 0, type: uint16}  # Analog input 4
+      - {index: 0x2702, sub_index: 0, type: uint32}  # Tuning status
+  - index: 0x1a02
+    channels:
+      - {index: 0x60fd, sub_index: 0, type: uint32}  # Digital Inputs
+  - index: 0x1a03
+    channels:
+      - {index: 0x2704, sub_index: 0, type: uint32}  # User MISO
+      - {index: 0x20f0, sub_index: 0, type: uint32}  # Timestamp
+      - {index: 0x60fc, sub_index: 0, type: int32}  # Position demand internal value
+      - {index: 0x606b, sub_index: 0, type: int32}  # Velocity demand value
+      - {index: 0x6074, sub_index: 0, type: int16}  # Torque demand
