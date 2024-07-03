@@ -1,6 +1,6 @@
-# Configuration file for Maxon EPOS3 drive
+# Configuration file for Maxon EPOS4 50/5 drive
 vendor_id: 0x000000fb
-product_id: 0x64400000
+product_id: 0x63500000 # Product code
 assign_activate: 0x0300 # DC Synch register
 auto_fault_reset: false # true = automatic fault reset, false = fault reset on rising edge command interface "reset_fault"
 sdo: # sdo data to be transferred at drive startup
@@ -23,7 +23,7 @@ rpdo: # RxPDO = receive PDO 4 Mapping
       - { index: 0x60b1, sub_index: 0, type: int32, default: 0 } # Offset velocity
       - { index: 0x60b2, sub_index: 0, type: int16, default: 0 } # Offset torque
       - { index: 0x6060, sub_index: 0, type: int8, default: 8 } # Mode of operation
-      - { index: 0x2078, sub_index: 1, type: uint16, default: 0 } # Digital Output Functionalities
+      - { index: 0x3150, sub_index: 1, type: uint16, default: 0 } # Digital Output Properties
       - { index: 0x60b8, sub_index: 0, type: uint16, default: 0 } # Touch Probe Function
 tpdo: # TxPDO = transmit PDO 4 Mapping
   - index: 0x1a03
@@ -33,7 +33,7 @@ tpdo: # TxPDO = transmit PDO 4 Mapping
       - { index: 0x606c, sub_index: 0, type: int32, state_interface: velocity } # Velocity actual value
       - { index: 0x6077, sub_index: 0, type: int16, state_interface: effort } # Torque actual value
       - { index: 0x6061, sub_index: 0, type: int8 } # Mode of operation display
-      - { index: 0x2071, sub_index: 1, type: int16 } # Digital Input Functionalities State
+      - { index: 0x3141, sub_index: 1, type: int16 } # Digital Input Properties
       - { index: 0x60b9, sub_index: 0, type: int16 } # Touch Probe Status
-      - { index: 0x60ba, sub_index: 0, type: int32 } # Touch Probe Position 1 Positive Value
-      - { index: 0x60bb, sub_index: 0, type: int32 } # Touch Probe Position 1 Negative Value
+      - { index: 0x60ba, sub_index: 0, type: int32 } # Touch Probe Position 1 Positive edge
+      - { index: 0x60bb, sub_index: 0, type: int32 } # Touch Probe Position 1 Negative edge
