@@ -8,7 +8,7 @@ sdo:  # sdo data to be transferred at drive startup
   - {index: 0x60C2, sub_index: 1, type: int8, value: 10} # Set interpolation time for cyclic modes to 10 ms
   - {index: 0x60C2, sub_index: 2, type: int8, value: -3} # Set base 10-3s
   - {index: 0x6098, sub_index: 0, type: int8, value: 35}
-rpdo:  # RxPDO
+rpdo:  # RxPDO = receive PDO Mapping (ROS control to motor drive, Master Out to Slave In -MOSI-)
   - index: 0x1607
     channels:
       - {index: 0x607a, sub_index: 0, type: int32, command_interface: position, default: .nan}  # Target position
@@ -17,7 +17,7 @@ rpdo:  # RxPDO
       - {index: 0x6072, sub_index: 0, type: int16, default: 1000}  # Max torque
       - {index: 0x6040, sub_index: 0, type: uint16, default: 0}  # Control word
       - {index: 0x6060, sub_index: 0, type: int8, default: 8}  # Mode of operation
-tpdo:  # TxPDO
+tpdo:  # TxPDO = transmit PDO Mapping (motor drive to ROS control, Master In From Slave Out -MISO-)
   - index: 0x1a07
     channels:
       - {index: 0x6064, sub_index: 0, type: int32, state_interface: position}  # Position actual value

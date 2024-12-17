@@ -2,7 +2,7 @@
 # Description : EtherCAT Terminal, 8-channel digital output, 24 V DC, 0.5 A.
 vendor_id: 0x00000002
 product_id: 0x07d83052
-rpdo:  # RxPDO
+rpdo:  # RxPDO = receive PDO Mapping (ROS control to slave, Master Out to Slave In -MOSI-)
   - index: 0x1600
     channels:
       - {index: 0x7000, sub_index: 0x01, type: bool, mask: 1, command_interface: d_output.1}

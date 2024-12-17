@@ -2,11 +2,11 @@
 # Description : Omron EtherCAT Coupler NX_ECC201 with NX_ID5442 16-ch Digital Input module
 vendor_id: 0x00000083
 product_id: 0x00000083
-rpdo: #RxPDO
+rpdo: #RxPDO = receive PDO Mapping (ROS control to slave, Master Out to Slave In -MOSI-)
   - index: 0x1604
     channels:
       - {index: 0x7022, sub_index: 0x01, type: uint16}
-tpdo:  # TxPDO
+tpdo:  # TxPDO = transmit PDO Mapping (slave to ROS control, Master In From Slave Out -MISO-)
   - index: 0x1bf8
     channels:
       - {index: 0x3003, sub_index: 0x04, type: bit128}

@@ -2,7 +2,7 @@
 # Description : 8-ch Sink-type Digital Output EtherCAT Slice IO Module
 vendor_id: 0x000013FE
 product_id: 0x00035056
-rpdo:  # RxPDO
+rpdo:  # RxPDO = receive PDO Mapping (ROS control to slave, Master Out to Slave In -MOSI-)
   - index: 0x1600
     channels:
       - {index: 0x3101, sub_index: 0x01, type: bool, mask: 1, command_interface: d_output.1}

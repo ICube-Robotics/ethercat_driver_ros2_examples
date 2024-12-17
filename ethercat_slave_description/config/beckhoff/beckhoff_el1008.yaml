@@ -2,7 +2,7 @@
 # Description : EtherCAT Terminal, 8-channel digital input, 24 V DC, 3 ms.
 vendor_id: 0x00000002
 product_id: 0x03f03052
-tpdo:  # TxPDO
+tpdo:  # TxPDO = transmit PDO Mapping (slave to ROS control, Master In From Slave Out -MISO-)
   - index: 0x1a00
     channels:
       - {index: 0x6000, sub_index: 0x01, type: bool, mask: 1, state_interface: d_input.1}

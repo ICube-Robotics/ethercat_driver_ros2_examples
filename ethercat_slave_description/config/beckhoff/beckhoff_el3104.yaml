@@ -2,7 +2,7 @@
 # Description : EtherCAT Terminal, 4-channel analog input, voltage, ±10 V, 16 bit, differential.
 vendor_id: 0x00000002
 product_id: 0x0c203052
-tpdo:  # TxPDO
+tpdo:  # TxPDO = transmit PDO Mapping (slave to ROS control, Master In From Slave Out -MISO-)
   - index: 0x1a00
     channels:
       - {index: 0x6000, sub_index: 0x01, type: bool}  # Underrange

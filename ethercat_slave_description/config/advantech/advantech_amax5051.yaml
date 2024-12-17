@@ -2,7 +2,7 @@
 # Description : 8-ch Digital Input EtherCAT Slice IO Module
 vendor_id: 0x000013FE
 product_id: 0x00035051
-tpdo:  # TxPDO
+tpdo:  # TxPDO = transmit PDO Mapping (slave to ROS control, Master In From Slave Out -MISO-)
   - index: 0x1a00
     channels:
       - {index: 0x3001, sub_index: 0x01, type: bool, mask: 1, state_interface: d_input.1}
